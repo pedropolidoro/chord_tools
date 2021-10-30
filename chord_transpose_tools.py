@@ -6,7 +6,7 @@ with open('chord_regex.txt', 'r', encoding='UTF-8') as file_obj:
 
 chord_re = re.compile(chord_re, re.X)
 
-def cv_chord(match_obj, dislocate):
+def cv_chord(match_obj, dislocate, accidental='#'):
     """Performs the transposition of a single chord,
     dislocate represents the amount of semitones shifted."""
     
@@ -17,15 +17,15 @@ def cv_chord(match_obj, dislocate):
     if not other:
         other = ''
     fundamental = (note2num(fundamental) + dislocate) % 12
-    fundamental = num2note(fundamental)
+    fundamental = num2note(fundamental, accidental)
     if bass:
         bass = (note2num(bass) + dislocate) % 12
-        bass = num2note(bass)
+        bass = num2note(bass, accidental)
         bass = '/' + bass # because regex remove the "/"
     return fundamental + other + bass
 
-def chord_sub(string, dislocate):
+def chord_sub(string, dislocate, accidental='#'):
     """Transposes all the chords in a string
     that may contain more than just chords."""
     
-    return chord_re.sub(lambda x: cv_chord(x, dislocate), string)
+    return chord_re.sub(lambda x: cv_chord(x, dislocate, accidental), string)
