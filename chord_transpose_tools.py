@@ -7,6 +7,9 @@ with open('chord_regex.txt', 'r', encoding='UTF-8') as file_obj:
 chord_re = re.compile(chord_re, re.X)
 
 def cv_chord(match_obj, dislocate):
+    """Performs the transposition of a single chord,
+    dislocate represents the amount of semitones shifted."""
+    
     fundamental, other, bass = match_obj.groups()
     # remove None values
     if not bass:
@@ -22,4 +25,7 @@ def cv_chord(match_obj, dislocate):
     return fundamental + other + bass
 
 def chord_sub(string, dislocate):
+    """Transposes all the chords in a string
+    that may contain more than just chords."""
+    
     return chord_re.sub(lambda x: cv_chord(x, dislocate), string)
