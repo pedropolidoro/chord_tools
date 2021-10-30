@@ -1,0 +1,32 @@
+(?# This regular expression is for separate and recognize musical chords
+    when mixed with lyrics.
+)
+
+\b(?:
+  (?#fundamental)                                         ([A-G][#b♯♭]?)
+(																
+
+  (?:
+      (?#type)    (?:m|mi(?:n(?:or)?)?|\+|½?dim|º|°|⁰|◦|⸰|○|⚬|∆|Δ|△|Ø|ø|
+                  ⌀|⊘|∅|au[gm]|alt|sus|dom|-)|
+      (?#mode)                           (?:ion|dor|phr|lyd|mix|aeo|loc)
+  )?
+
+  (?:(?#tension)
+    \(? \/?
+      (?:(?#tension_complement_prefix) (?:add|no|omitt|maj?|Maj|M|sus))?
+
+      (?:(?#tension_alteration_prefix)                        [#b♯♭+-])?
+
+      (?:(?#tension_number)                                13|11|[2-79])
+
+      (?:(?#tension_alteration_posfix)                        [#b♯♭+-])?
+
+      (?:(?#tension_complement_posfix)   (?:maj?|Maj|M|sus|alt|au[gm]))?
+    \)?
+  )*
+)?
+  (?#bass)                                          (?:\/([A-G][#b♯♭]?))?
+  (?:(?#drop)                                             \(?drop\d\)?)?
+  (?=!\n|\s|$)
+)
