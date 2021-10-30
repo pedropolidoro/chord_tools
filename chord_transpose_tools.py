@@ -1,7 +1,7 @@
 import re
-from musicfunctions import note2num, num2note
+from note_transpose_tools  import note2num, num2note
 
-with open('chord_re.txt', 'r', encoding='UTF-8') as file_obj:
+with open('chord_regex.txt', 'r', encoding='UTF-8') as file_obj:
     chord_re = file_obj.read()
 
 chord_re = re.compile(chord_re, re.X)
