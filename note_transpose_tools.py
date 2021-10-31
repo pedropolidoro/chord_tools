@@ -5,7 +5,7 @@ def note2num(note):
 
     number = notenames.index(note[0])
     if note[1:]:
-        # When chord name is more than just one letter.
+        # When chord name has accidental.
         for accidental_simbol in note[1:]:
             number += accidentals[accidental_simbol]
     return number
@@ -14,6 +14,6 @@ def note2num(note):
 def num2note(num, accidental='#'):
 
     if not (name := notenames[num]):
-        # When musical note has an accidental.
+        # When musical note has accidental.
         name = notenames[num - accidentals[accidental]] + accidental
     return name
