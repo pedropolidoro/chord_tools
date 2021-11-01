@@ -6,7 +6,7 @@ with open('chord_regex.txt', 'r', encoding='UTF-8') as file_obj:
 
 chord_re = re.compile(chord_re, re.X)
 
-def cv_chord(match_obj, dislocate, accidental='#'):
+def cv_chord(match_obj : re.Match, dislocate, accidental='#'):
     """Performs the transposition of a single chord,
     dislocate represents the amount of semitones shifted."""
     
