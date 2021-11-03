@@ -11,10 +11,9 @@ def cv_chord(match_obj : re.Match, dislocate, accidental='#'):
     dislocate represents the amount of semitones shifted."""
     
     fundamental, other, bass = match_obj.groups()
-    # remove None values
-    if not bass:
+    if bass == None:
         bass = ''
-    if not other:
+    if other == None:
         other = ''
     fundamental = (note2num(fundamental) + dislocate) % 12
     fundamental = num2note(fundamental, accidental)
