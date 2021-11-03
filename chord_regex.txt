@@ -14,7 +14,7 @@
 
   (?:(?#tension)
     \(? \/?
-      (?:(?#tension_complement_prefix) (?:add|no|omitt|maj?|Maj|M|sus))?
+      (?:(?#tension_complement_prefix)  (?:add|no|omit|maj?|Maj|M|sus))?
 
       (?:(?#tension_alteration_prefix)                        [#b♯♭+-])?
 
