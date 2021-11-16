@@ -26,5 +26,5 @@ pyperclip.copy(chord_sub(original_string, int(semitones), accidental))
 clear_screen()
 print('Transposition was performed.\n'
     'Transposed version was stored in the clipboard.\n'
-    (Use paste option or Ctrl + v)')
+    '(Use paste option or Ctrl + v)')
 sleep(10)
