@@ -2,7 +2,7 @@ import pyperclip
 from time import sleep
 from chord_transpose_tools import chord_sub
 from os import system
-import msg_english as msg
+import languages.msg_english as msg
 
 
 system('')
