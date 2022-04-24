@@ -19,7 +19,7 @@ while not (semitones := input(msg.num_semitones)).removeprefix('-').isdecimal():
 clear_screen()
 while not (accidental := input(msg.what_accidental)) in ('#', 'b'):
     clear_screen()
-    print(accidental_fail)
+    print(msg.accidental_fail)
 
 pyperclip.copy(chord_sub(original_string, int(semitones), accidental))
 clear_screen()
